@@ -8,6 +8,7 @@ class BattleManager
     const TYPE_NO_JEDI = 'no_jedi';
     // only allow jedi powers
     const TYPE_ONLY_JEDI = 'only_jedi';
+
     /**
      * Our complex fighting algorithm!
      *
@@ -68,6 +69,15 @@ class BattleManager
         }
 
         return new BattleResult($usedJediPowers, $winningShip, $losingShip);
+    }
+
+    public static function getAllBattleTypesWithDescription()
+    {
+        return array(
+            self::TYPE_NORMAL => 'Normal',
+            self::TYPE_NO_JEDI => 'No Jedi Powers',
+            self::TYPE_ONLY_JEDI => 'Only Jedi Powers'
+        );
     }
 
     private function didJediDestroyShipUsingTheForce(AbstractShip $ship)
