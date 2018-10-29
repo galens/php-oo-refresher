@@ -1,5 +1,10 @@
 <?php
 
+namespace Service;
+
+use Model\BattleResults;
+use Model\AbstractShip;
+
 class BattleManager
 {
     // normal battle mode
