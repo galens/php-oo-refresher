@@ -5,6 +5,8 @@ namespace Service;
 use Model\RebelShip;
 use Model\Ship;
 use Model\AbstractShip;
+use Model\ShipCollection;
+use Model\BountyHunterShip;
 
 class ShipLoader
 {
@@ -16,7 +18,7 @@ class ShipLoader
     }
 
     /**
-     * @return AbstractShip[]
+     * @return ShipCollection
      */
     public function getShips()
     {
@@ -24,8 +26,8 @@ class ShipLoader
             $ships = array();
 
             $shipsData = $this->queryForShips();
-        } catch (\Exception $e) {
-            trigger_error('Exception! '.$e->getMessage());
+        } catch (\PDOException $e) {
+            trigger_error('Database Exception! '.$e->getMessage());
             $shipsData = [];
         }
 
@@ -33,7 +35,9 @@ class ShipLoader
             $ships[] = $this->createShipFromData($shipData);
         }
 
-        return $ships;
+        $ships[] = new BountyHunterShip('Slave I');
+
+        return new ShipCollection($ships);
     }
 
     /**

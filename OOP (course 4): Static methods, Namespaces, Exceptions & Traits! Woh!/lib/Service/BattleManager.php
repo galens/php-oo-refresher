@@ -2,7 +2,7 @@
 
 namespace Service;
 
-use Model\BattleResults;
+use Model\BattleResult;
 use Model\AbstractShip;
 
 class BattleManager

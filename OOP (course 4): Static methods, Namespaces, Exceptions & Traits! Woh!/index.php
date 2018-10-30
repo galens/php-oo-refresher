@@ -14,6 +14,8 @@ $ships = $shipLoader->getShips();
 $brokenShip = new BrokenShip('Just a hunk of metal');
 $ships[] = $brokenShip;
 
+$ships->removeAllBrokenShips();
+
 $battleTypes = BattleManager::getAllBattleTypesWithDescription();
 
 $errorMessage = '';
