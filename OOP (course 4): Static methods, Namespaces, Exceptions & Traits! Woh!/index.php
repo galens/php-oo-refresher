@@ -11,7 +11,7 @@ $container = new Container($configuration);
 $shipLoader = $container->getShipLoader();
 $ships = $shipLoader->getShips();
 
-$brokenShip = new BrokenShip('Just a hunk of metal');
+$brokenShip = new BrokenShip('Just a hunk of broken metal');
 $ships[] = $brokenShip;
 
 $ships->removeAllBrokenShips();
